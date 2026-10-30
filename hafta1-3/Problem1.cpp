@@ -24,6 +24,6 @@ public:
 
 int main() {
     Problem1Solver solver(1000);
-    std::cout << "Result: " << solver.solve() << '\n';
+    std::cout << "Sonuç: " << solver.solve() << '\n';
     return 0;
 }

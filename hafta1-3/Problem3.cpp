@@ -15,13 +15,13 @@ public:
 
     long long solve() const {
         if (number_ < 2) {
-            return 0; // No prime factor exists for inputs below 2.
+            return 0; // 2'den küçük girdilerin asal çarpanı yoktur.
         }
 
         long long remaining = number_;
         long long largestFactor = 0;
 
-        // Division avoids potential overflow from factor * factor.
+        // Bölme kullanımı, factor * factor işlemindeki olası taşmayı önler.
         for (long long factor = 2; factor <= remaining / factor; ++factor) {
             if (remaining % factor == 0) {
                 largestFactor = factor;
@@ -29,7 +29,7 @@ public:
             }
         }
 
-        // Any remaining value greater than 1 is prime.
+        // 1'den büyük kalan değer asaldır.
         if (remaining > 1) {
             largestFactor = remaining;
         }
@@ -39,6 +39,6 @@ public:
 
 int main() {
     Problem3Solver solver(600851475143LL);
-    std::cout << "Result: " << solver.solve() << '\n';
+    std::cout << "Sonuç: " << solver.solve() << '\n';
     return 0;
 }

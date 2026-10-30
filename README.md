@@ -1,33 +1,34 @@
-# OOP Project Euler Solve
+# Nesne Tabanlı Programlama — Project Euler Çözümleri
 
-C++17 object-oriented solutions to Project Euler Problems 1–3 for the weeks 1–3 make-up assignment.
+Bu depo, 1–3. haftaların telafi çalışması kapsamında Project Euler'in ilk üç probleminin C++17 ile nesne tabanlı çözümlerini içerir.
 
-## Assignment
+[Ödev yönergesi](https://github.com/zyavuz610/learn-cpp/blob/main/900_projects/2026_inClass_Projects/week_01-03/readme.md)
 
-[Instructor's requirements](https://github.com/zyavuz610/learn-cpp/blob/main/900_projects/2026_inClass_Projects/week_01-03/readme.md)
+## Dosyalar ve beklenen sonuçlar
 
-| File | Class | Input | Expected output |
+| Dosya | Sınıf | Girdi | Beklenen çıktı |
 | --- | --- | --- | --- |
-| `hafta1-3/Problem1.cpp` | `Problem1Solver` | Exclusive limit: 1000 | `Result: 233168` |
-| `hafta1-3/Problem2.cpp` | `Problem2Solver` | Inclusive limit: 4000000 | `Result: 4613732` |
-| `hafta1-3/Problem3.cpp` | `Problem3Solver` | 600851475143 | `Result: 6857` |
+| `hafta1-3/Problem1.cpp` | `Problem1Solver` | Üst sınır: 1000 (hariç) | `Sonuç: 233168` |
+| `hafta1-3/Problem2.cpp` | `Problem2Solver` | Üst sınır: 4000000 (dahil) | `Sonuç: 4613732` |
+| `hafta1-3/Problem3.cpp` | `Problem3Solver` | 600851475143 | `Sonuç: 6857` |
 
-Each source file is a standalone program containing exactly one solver class and its own main function. Compile the programs separately.
+Her dosya, tek bir çözüm sınıfı ve kendi `main()` fonksiyonunu içerir. Programlar ayrı ayrı derlenmelidir.
 
-## Class design
+## Sınıf tasarımı
 
-- Inputs are private members initialized through explicit constructors.
-- Public `solve() const` methods return results without printing.
-- Helper operations are private methods.
-- Each `main()` only creates a solver, calls `solve()`, and prints the result.
-- No separate headers or free helper functions are used.
-- Calculations use local working variables, so repeated calls do not modify the stored input.
+- Problemin girdisi, `private` üye değişkende saklanır ve kurucu (constructor) aracılığıyla alınır.
+- `public` bölümündeki `solve() const` metodu sonucu döndürür; ekrana yazdırmaz.
+- Yardımcı işlemler sınıfın `private` metotlarında gerçekleştirilir.
+- `main()` yalnızca nesne oluşturur, `solve()` metodunu çağırır ve sonucu yazdırır.
+- Ayrı başlık dosyası veya sınıf dışında yardımcı fonksiyon kullanılmaz.
+- Hesaplamalarda yerel değişkenler kullanılır; saklanan girdi değiştirilmez. Aynı nesnede `solve()` tekrar çağrılabilir.
+- Dosya ve sınıf adları, ödev yönergesindeki biçimiyle korunmuştur.
 
-## Build and run
+## Derleme ve çalıştırma
 
-Requirements: a C++17-compatible g++ compiler.
+Gereksinim: C++17 destekleyen bir `g++` derleyicisi.
 
-Run from the repository root:
+Deponun ana klasöründe aşağıdaki komutları çalıştırın:
 
 ```bash
 mkdir -p build
@@ -39,36 +40,56 @@ g++ -std=c++17 -Wall -Wextra hafta1-3/Problem3.cpp -o build/problem3
 ./build/problem3
 ```
 
-## Algorithms
+Çıktılar sırasıyla:
 
-### Problem 1 — Multiples of 3 or 5
+```text
+Sonuç: 233168
+Sonuç: 4613732
+Sonuç: 6857
+```
 
-Visit positive integers below the limit and add a number once if it is divisible by 3 or 5. The logical OR prevents double counting multiples of 15.
+## Problem 1 — 3 veya 5'in katları
 
-Time: O(limit). Extra space: O(1).
+1000'den küçük, 3'e veya 5'e tam bölünen pozitif sayıların toplamı hesaplanır. Sayılar sırayla kontrol edilir. Mantıksal VEYA (`||`) kullanıldığı için 15 gibi her iki sayıya bölünen değerler yalnızca bir kez eklenir.
 
-[Original problem](https://projecteuler.net/problem=1)
+Örnek: Sınır 10 olduğunda 3 + 5 + 6 + 9 = 23.
 
-### Problem 2 — Even Fibonacci Numbers
+Zaman karmaşıklığı: O(sınır). Ek bellek: O(1).
 
-Start with 1 and 2, keep only two consecutive terms, and sum even terms not exceeding the limit. A private helper advances the sequence. The limit is an int; intermediate Fibonacci values and the sum use long long.
+[Problemin aslı](https://projecteuler.net/problem=1)
 
-Time: O(log limit) for positive limits. Extra space: O(1).
+## Problem 2 — Çift Fibonacci sayıları
 
-[Original problem](https://projecteuler.net/problem=2)
+1 ve 2 ile başlayan Fibonacci dizisinde, dört milyonu aşmayan çift terimlerin toplamı hesaplanır. Yalnızca ardışık iki terim saklanır. Dizide ilerleme işlemi özel bir yardımcı metotta yapılır.
 
-### Problem 3 — Largest Prime Factor
+Örnek: Sınır 100 olduğunda 2 + 8 + 34 = 44.
 
-Try factors in ascending order and remove every occurrence of each divisor. After smaller factors have been removed, the next divisor found must be prime. Stop when the trial factor exceeds the square root of the remaining value; any remaining value greater than 1 is the largest prime factor. The condition uses division to avoid multiplication overflow.
+Üst sınır `int`, ara terimler ve toplam `long long` türündedir.
 
-Time: O(sqrt(number)) worst case. Extra space: O(1).
+Zaman karmaşıklığı: Pozitif sınırlar için O(log sınır). Ek bellek: O(1).
 
-[Original problem](https://projecteuler.net/problem=3)
+[Problemin aslı](https://projecteuler.net/problem=2)
 
-## Input behavior and validation
+## Problem 3 — En büyük asal çarpan
 
-- Problem 1: limits at or below 1 return 0.
-- Problem 2: limits below 2 return 0.
-- Problem 3: inputs below 2 return 0 as a sentinel for no prime factor.
-- Example checks: Problem 1 with 10 returns 23; Problem 2 with 100 returns 44; Problem 3 with 13195 returns 29.
-- Each solution is added in its own commit: `Problem 1 solved`, `Problem 2 solved`, and `Problem 3 solved`.
+600851475143 sayısının en büyük asal çarpanı bulunur. Bölenler küçükten büyüğe denenir ve bulunan bölenin tüm tekrarları sayıdan çıkarılır. Küçük çarpanlar önceden çıkarıldığı için sonraki bulunan bölen asaldır.
+
+Denenecek çarpan, kalan sayının karekökünü aştığında döngü biter. Kalan sayı 1'den büyükse bu sayı en büyük asal çarpandır. Döngü koşulunda çarpma yerine bölme kullanılarak taşma riski önlenir.
+
+Örnek: 13195 sayısının en büyük asal çarpanı 29'dur.
+
+Zaman karmaşıklığı: En kötü durumda O(√sayı). Ek bellek: O(1).
+
+[Problemin aslı](https://projecteuler.net/problem=3)
+
+## Sınır durumları ve kontroller
+
+- Problem 1: Sınır 1 veya daha küçükse sonuç 0 olur.
+- Problem 2: Sınır 2'den küçükse sonuç 0 olur.
+- Problem 3: Girdi 2'den küçükse asal çarpan bulunmadığını belirtmek için 0 döndürülür.
+- Üç program, `-std=c++17 -Wall -Wextra` seçenekleriyle uyarısız derlenmiştir.
+- Örnek girdiler, sınır durumları ve aynı nesnede tekrarlanan çözüm çağrıları kontrol edilmiştir.
+
+## Commit düzeni
+
+Her problem ayrı bir commit ile eklenmiştir. İlk çözüm commitlerinin mesajları yönergede verilen örneğe uygun olarak `Problem 1 solved`, `Problem 2 solved` ve `Problem 3 solved` biçimindedir. Türkçeleştirme, bu geçmiş korunarak ek bir commit ile yapılmıştır.
