@@ -59,18 +59,4 @@ Sınır 100 olduğunda değerlendirilen terimler:
 
 Sınır 2 ise sonuç 2; sınır 2'den küçükse sonuç 0 olur.
 
-## Maliyet
 
-Pozitif ve büyüyen sınırlar için zaman karmaşıklığı O(log sınır), ek bellek kullanımı O(1)'dir.
-
-## Çalıştırma
-
-Deponun ana klasöründe:
-
-```bash
-mkdir -p build
-g++ -std=c++17 -Wall -Wextra hafta1-3/Problem2.cpp -o build/problem2
-./build/problem2
-```
-
-[Ana sayfaya dön](../README.md)
