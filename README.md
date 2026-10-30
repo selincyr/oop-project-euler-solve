@@ -48,39 +48,17 @@ Sonuç: 4613732
 Sonuç: 6857
 ```
 
-## Problem 1 — 3 veya 5'in katları
+## Problem açıklamaları ve akış şemaları
 
-1000'den küçük, 3'e veya 5'e tam bölünen pozitif sayıların toplamı hesaplanır. Sayılar sırayla kontrol edilir. Mantıksal VEYA (`||`) kullanıldığı için 15 gibi her iki sayıya bölünen değerler yalnızca bir kez eklenir.
+Her problemin anlatımı, kod dosyasının yanında ayrı bir belgede bulunur:
 
-Örnek: Sınır 10 olduğunda 3 + 5 + 6 + 9 = 23.
+| Problem | Kaynak kod | Açıklama ve akış şeması |
+| --- | --- | --- |
+| 1 — 3 veya 5'in katları | [Problem1.cpp](hafta1-3/Problem1.cpp) | [Problem1.md](hafta1-3/Problem1.md) |
+| 2 — Çift Fibonacci sayıları | [Problem2.cpp](hafta1-3/Problem2.cpp) | [Problem2.md](hafta1-3/Problem2.md) |
+| 3 — En büyük asal çarpan | [Problem3.cpp](hafta1-3/Problem3.cpp) | [Problem3.md](hafta1-3/Problem3.md) |
 
-Zaman karmaşıklığı: O(sınır). Ek bellek: O(1).
-
-[Problemin aslı](https://projecteuler.net/problem=1)
-
-## Problem 2 — Çift Fibonacci sayıları
-
-1 ve 2 ile başlayan Fibonacci dizisinde, dört milyonu aşmayan çift terimlerin toplamı hesaplanır. Yalnızca ardışık iki terim saklanır. Dizide ilerleme işlemi özel bir yardımcı metotta yapılır.
-
-Örnek: Sınır 100 olduğunda 2 + 8 + 34 = 44.
-
-Üst sınır `int`, ara terimler ve toplam `long long` türündedir.
-
-Zaman karmaşıklığı: Pozitif sınırlar için O(log sınır). Ek bellek: O(1).
-
-[Problemin aslı](https://projecteuler.net/problem=2)
-
-## Problem 3 — En büyük asal çarpan
-
-600851475143 sayısının en büyük asal çarpanı bulunur. Bölenler küçükten büyüğe denenir ve bulunan bölenin tüm tekrarları sayıdan çıkarılır. Küçük çarpanlar önceden çıkarıldığı için sonraki bulunan bölen asaldır.
-
-Denenecek çarpan, kalan sayının karekökünü aştığında döngü biter. Kalan sayı 1'den büyükse bu sayı en büyük asal çarpandır. Döngü koşulunda çarpma yerine bölme kullanılarak taşma riski önlenir.
-
-Örnek: 13195 sayısının en büyük asal çarpanı 29'dur.
-
-Zaman karmaşıklığı: En kötü durumda O(√sayı). Ek bellek: O(1).
-
-[Problemin aslı](https://projecteuler.net/problem=3)
+Belgeler; problem tanımını, sınıfın görevlerini, çözüm adımlarını, akış şemasını ve küçük örnekleri içerir. Yeni problemler de aynı düzenle eklenebilir.
 
 ## Sınır durumları ve kontroller
 
