@@ -51,18 +51,6 @@ Sınır 10 olduğunda uygun sayılar 3, 5, 6 ve 9'dur:
 
 Sınır 1 veya daha küçükse döngü çalışmaz ve sonuç 0 olur.
 
-## Maliyet
 
-Zaman karmaşıklığı O(sınır), ek bellek kullanımı O(1)'dir.
-
-## Çalıştırma
-
-Deponun ana klasöründe:
-
-```bash
-mkdir -p build
-g++ -std=c++17 -Wall -Wextra hafta1-3/Problem1.cpp -o build/problem1
-./build/problem1
-```
 
 [Ana sayfaya dön](../README.md)
