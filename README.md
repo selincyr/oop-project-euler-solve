@@ -92,4 +92,4 @@ Zaman karmaşıklığı: En kötü durumda O(√sayı). Ek bellek: O(1).
 
 ## Commit düzeni
 
-Her problem ayrı bir commit ile eklenmiştir. İlk çözüm commitlerinin mesajları yönergede verilen örneğe uygun olarak `Problem 1 solved`, `Problem 2 solved` ve `Problem 3 solved` biçimindedir. Türkçeleştirme, bu geçmiş korunarak ek bir commit ile yapılmıştır.
+Her problem ayrı bir commit ile eklenmiştir. İlk çözüm commitlerinin mesajları yönergede verilen örneğe uygun olarak `Problem 1 solved`, `Problem 2 solved` ve `Problem 3 solved` biçimindedir. 
