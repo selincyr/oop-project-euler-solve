@@ -80,18 +80,6 @@ Arama sona erdiğinde kalan 29, 1'den büyüktür. Sonuç **29** olarak güncell
 
 49 için 7 iki kez çıkarılır, kalan 1 olur ve sonuç 7'dir. 97 gibi asal bir girdide hiçbir bölen bulunmaz; kalan girdinin kendisidir ve sonuç 97 olur.
 
-## Maliyet
 
-En kötü durumda zaman karmaşıklığı O(√sayı), ek bellek kullanımı O(1)'dir.
-
-## Çalıştırma
-
-Deponun ana klasöründe:
-
-```bash
-mkdir -p build
-g++ -std=c++17 -Wall -Wextra hafta1-3/Problem3.cpp -o build/problem3
-./build/problem3
-```
 
 [Ana sayfaya dön](../README.md)
